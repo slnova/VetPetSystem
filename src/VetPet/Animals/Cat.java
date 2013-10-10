@@ -34,6 +34,14 @@ public class Cat extends Animal
 
 	}
 	
+	public void setFavCatToy( String toy) 
+	{ 
+		this.toy=toy;
+	}
+	public String getFavCatToy()
+	{
+		return toy;
+	} 
 	/*public String ID;
     public String type;
  

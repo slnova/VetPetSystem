@@ -27,6 +27,8 @@ import VetPet.Animals.*;
 
 public class VetClinic
 {
+	
+	
     //---------------------------------------------------------------------------
     /**
        \brief constructor
