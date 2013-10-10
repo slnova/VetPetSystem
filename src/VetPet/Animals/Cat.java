@@ -34,6 +34,13 @@ public class Cat extends Animal
 
 	}
 	
+	@Override
+	public String toString()
+	{
+		return("\t ID: "+ ID +" Name: " + Name + " Type: " + type  +" Toy: " + toy +"\n");
+				
+	}
+	
 	public void setFavCatToy( String toy) 
 	{ 
 		this.toy=toy;

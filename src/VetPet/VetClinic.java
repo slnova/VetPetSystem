@@ -22,13 +22,13 @@ package VetPet;
 */
 
 
-
+import java.util.ArrayList;
 import VetPet.Animals.*;
 
 public class VetClinic
 {
 	
-	
+	public ArrayList<Animal> AnimalList = new ArrayList<Animal>();
     //---------------------------------------------------------------------------
     /**
        \brief constructor
@@ -68,8 +68,7 @@ public class VetClinic
 		
 		Dog doggy = new Dog(ID, type, name, K9_family);
 		
-		Doglist[numDogs] = doggy;
-		numDogs++;
+		AnimalList.add(doggy);
 		
 		return true;
 			
@@ -93,8 +92,7 @@ public class VetClinic
 
     	Cat kitty = new Cat(ID, type, name, toy);
 
-    	Catlist[numCats] = kitty;
-    	numCats++;
+    	AnimalList.add(kitty);
 	
     	return true;
     }
@@ -108,33 +106,31 @@ public class VetClinic
      */
     public String listAll_animals()
     {
-	String ret = "";
-	int i=0;
+    	String catString = "";
+		String dogString = "";
+		
+		
+		for(int i=0;i< AnimalList.size(); i++)
+		{
+
+			if(AnimalList.get(i) instanceof Cat)
+				catString += AnimalList.get(i).toString();
+
+			if(AnimalList.get(i) instanceof Dog)
+				dogString += AnimalList.get(i).toString();
+		}
+
+		return("Animal: Cats\n" + catString + "\nAnimal: Dogs\n" + dogString);
+	    }
+
 	
-	ret="Animal: Cats\n";
-	for(i=0;i< numCats; i++)
-	    {
-		Cat c = Catlist[i];
-		ret += "\t ID: "+ c.ID +" Name: " + Animal.c.getName() + " Type: " + c.type 
-		    +" Toy: " + c.toy() +"\n";
-	    }
-
-	ret+="\nAnimal: Dogs\n";
-	for(i=0;i< numDogs; i++)
-	    {
-		Dog d = Doglist[i];
-		ret += "\t ID: "+ d.ID +" Name: " + d.getName() + " Type: " + d.type 
-		    +" K9_family: " + d.getK9_family() +"\n";
-	    }
-
-	return ret;
-    }
+    
     //---------------------------------------------------------------------------
     /**
        \brief returns the information on a single animal
        \return null if the animal could not be found,otherwise a string with the animals information
      */
-    public String getAnimalInformation(String ID)
+    /*public String getAnimalInformation(String ID)
     {
 	int i=0;
 	if(ID.length() != 6 ) return null;
@@ -163,8 +159,8 @@ public class VetClinic
 			+" K9_family: " + d.getK9_family() +"\n";
 	    }
 
-	return null;
-    }
+	return null;*/
+   //}
     //---------------------------------------------------------------------------
     private Cat Catlist[] = new Cat[10]; /**< \brief list of all cats in the clinic */
     private Dog Doglist[] = new Dog[10]; /**< \brief list of all dogs in the clinic */

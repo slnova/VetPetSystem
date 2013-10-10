@@ -35,6 +35,15 @@ public class Dog extends Animal
 		this.K9_family = K9_family;
 
 	}
+		
+	@Override 
+	public String toString()
+	{
+		
+		return("\t ID: "+ ID +" Name: " + Name + " Type: " + type  +" K9_family: " + K9_family +"\n");
+		
+		
+	}
 	
 	public void setK9_family( String fam )
 	{ 
