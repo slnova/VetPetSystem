@@ -23,9 +23,18 @@ package VetPet.Animals;
 */
 
 
-public class Cat
+public class Cat extends Animal
 {
-    public String ID;
+	private String toy;
+	
+	public Cat(String ID, String type, String Name, String toy)
+	{
+		super(ID, type, Name);
+		this.toy = toy;
+
+	}
+	
+	/*public String ID;
     public String type;
  
     public void setN(String N, int N2) { Name=N; }
@@ -35,5 +44,5 @@ public class Cat
     public String getFav_cat_toy() { return fav_cat_toy; } 
 
     private String Name;
-    private String fav_cat_toy; 
+    private String fav_cat_toy; */
 }

@@ -24,9 +24,18 @@ package VetPet.Animals;
 
 
 
-public class Dog
+public class Dog extends Animal
 {
-    public String ID;
+	
+	private String K9_family;
+	
+	public Dog(String ID, String type, String Name, String K9_family)
+	{
+		super(ID, type, Name);
+		this.K9_family = K9_family;
+
+	}
+    /*public String ID;
     public String type;
  
     public void setN(String N, int N2) { Name=N; }
@@ -36,5 +45,5 @@ public class Dog
     public String getK9_family() { return K9_family; }
 
     private String Name;
-    private String K9_family;
+    private String K9_family;*/
 }
