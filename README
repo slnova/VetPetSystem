@@ -1,0 +1,34 @@
+the set up of these files is for linux,but on a windows system you can just
+copy the code out of the src diretory.
+
+Doxygen was used to generate the html documentation for this code
+(this can be found in the directory doc).If you want to update the
+doc,make sure you have doxygen and the dot programs installed.
+
+
+Directories:
+	
+	src - source java files
+	doc - documentation in html
+	bin - contains java class files
+   Makefile - linuxmakefileof compiling and running of the system
+
+
+Description:
+
+	Small stupid program for the managment of a group of vet
+	clinics. 
+	
+Resrictions:
+	* ID numbers for animals MUST be exactly 6 digits long 
+	* Each vet clinic must have a different name
+
+Compile:
+	make
+
+ignore any warnings when you compile ,this isjust an issue between
+java 1.4 and 1.5
+
+
+run:
+	make run

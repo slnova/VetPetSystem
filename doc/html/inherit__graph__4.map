@@ -1,0 +1,8 @@
+base referer
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1MenuCommand.html 17,127 297,150
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1AddCat.html 365,7 597,31
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1AddClinic.html 358,55 604,79
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1AddDog.html 364,103 598,127
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1ListAllAnimals.html 345,150 617,174
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1ListAllVet.html 360,198 602,222
+rect $classVetPet_1_1Menu_1_1MenuCommands_1_1Quit.html 374,246 588,270
