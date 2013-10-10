@@ -37,6 +37,15 @@ public class VetClinic
 	this.Name = Name;
     }
     
+    public boolean validID(String ID)
+	{
+		if(ID.length() != 6 ) return false;
+
+		for(int i=0; i < ID.length(); i++ )
+			if( !Character.isDigit(ID.charAt(i))) return false; 
+		
+		return true;		
+	}
     
     //---------------------------------------------------------------------------
     /**
@@ -49,26 +58,22 @@ public class VetClinic
        \return true is dog has been added, false if the ID number is inncorect
      */
     //---------------------------------------------------------------------------
-    public boolean addDog(String name, String ID, String K9_family, String type )
-    {
-	if(ID.length() != 6 ) return false;
-	
-	for(int i=0; i < ID.length(); i++ )
-	    if( !Character.isDigit(ID.charAt(i))) return false; 
+    public boolean addDog(String ID,String type, String name,  String K9_family )
+	{
 
-
-	Dog doggy = new Dog();
-
-	doggy.ID=ID;
-	doggy.type=type;
-	doggy.setN(name,0);
-	doggy.setK9_family(K9_family);
-
-	Doglist[numDogs] = doggy;
-	numDogs++;
-	
-	return true;
-    }
+		if(!validID(ID))
+			return false;
+		
+		Dog doggy = new Dog(ID, type, name, K9_family);
+		
+		Doglist[numDogs] = doggy;
+		numDogs++;
+		
+		return true;
+			
+	}
+    
+    
     //---------------------------------------------------------------------------
     /**
        \brief adds a cat to the clinic 
@@ -81,23 +86,15 @@ public class VetClinic
      */
     public boolean addCat(String name, String ID, String toy, String type )
     {
-	if(ID.length() != 6 ) return false;
+    	if(!validID(ID))
+    		return false;
+
+    	Cat kitty = new Cat(ID, type, name, toy);
+
+    	Catlist[numCats] = kitty;
+    	numCats++;
 	
-	for(int i=0; i < ID.length(); i++ )
-	    if( !Character.isDigit(ID.charAt(i))) return false; 
-
-
-	Cat kitty = new Cat();
-
-	kitty.ID=ID;
-	kitty.type=type;
-	kitty.setN(name,0);
-	kitty.setFav_cat_toy(toy);
-
-	Catlist[numCats] = kitty;
-	numCats++;
-	
-	return true;
+    	return true;
     }
     //---------------------------------------------------------------------------
     public int numAnimals() { return numDogs + numCats; }
@@ -116,15 +113,15 @@ public class VetClinic
 	for(i=0;i< numCats; i++)
 	    {
 		Cat c = Catlist[i];
-		ret += "\t ID: "+ c.ID +" Name: " + c.getN() + " Type: " + c.type 
-		    +" Toy: " + c.getFav_cat_toy() +"\n";
+		ret += "\t ID: "+ c.ID +" Name: " + Animal.c.getName() + " Type: " + c.type 
+		    +" Toy: " + c.toy() +"\n";
 	    }
 
 	ret+="\nAnimal: Dogs\n";
 	for(i=0;i< numDogs; i++)
 	    {
 		Dog d = Doglist[i];
-		ret += "\t ID: "+ d.ID +" Name: " + d.getN() + " Type: " + d.type 
+		ret += "\t ID: "+ d.ID +" Name: " + d.getName() + " Type: " + d.type 
 		    +" K9_family: " + d.getK9_family() +"\n";
 	    }
 
@@ -150,7 +147,7 @@ public class VetClinic
 		Cat c = Catlist[i];
 
 		if(c.ID.equals(ID))
-		    return "(CAT) ID: "+ c.ID +" Name: " + c.getN() + " Type: " + c.type 
+		    return "(CAT) ID: "+ c.ID +" Name: " + c.getName() + " Type: " + c.type 
 		               +" Toy: " + c.getFav_cat_toy() +"\n";
 	    }
 		
@@ -160,7 +157,7 @@ public class VetClinic
 		Dog d = Doglist[i];
 		
 		if(d.ID.equals(ID))
-		    return "(DOG) ID: "+ d.ID +" Name: " + d.getN() + " Type: " + d.type 
+		    return "(DOG) ID: "+ d.ID +" Name: " + d.getName() + " Type: " + d.type 
 			+" K9_family: " + d.getK9_family() +"\n";
 	    }
 
