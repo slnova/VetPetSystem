@@ -29,6 +29,8 @@ public class VetClinic
 {
 	
 	public ArrayList<Animal> AnimalList = new ArrayList<Animal>();
+	private String vetClinicName = null; 
+	
     //---------------------------------------------------------------------------
     /**
        \brief constructor
@@ -36,7 +38,7 @@ public class VetClinic
      */
     public VetClinic(String Name)
     {
-	this.Name = Name;
+	vetClinicName = Name;
     }
     
     public boolean validID(String ID)

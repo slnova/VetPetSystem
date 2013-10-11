@@ -43,12 +43,12 @@ public class VetManager
 	    throw new NullPointerException("Vet Clinic nameis null");
 	
 
-	if( VetClinics.containsKey(Name) )
+	if( listOfClinics.containsKey(Name) )
 	    throw new IllegalArgumentException("Vet clinic name already exists");
     
 	VetClinic vet = new VetClinic(Name);
        
-	VetClinics.put(Name, vet );
+	listOfClinics.put(Name, vet );
     }
     //----------------------------------------------------------------------------
     /**
@@ -65,11 +65,11 @@ public class VetManager
 	    throw new NullPointerException("Vet Clinic nameis null");
 	
 
-	if( !VetClinics.containsKey(Name) )
+	if( !listOfClinics.containsKey(Name) )
 	    throw new IllegalArgumentException("Vet clinic '"+ Name +"' does not exist in the manager");
     
 	
-	return (VetClinic) VetClinics.get(Name);
+	return (VetClinic) listOfClinics.get(Name);
 
     }
     //----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ public class VetManager
     {
 	String ret ="";
 	
-	java.util.Enumeration e = VetClinics.elements();
+	java.util.Enumeration e = listOfClinics.elements();
 	
 	while(e.hasMoreElements())
 	    {
@@ -100,7 +100,7 @@ public class VetManager
     {
 	String ret ="";
 
-	java.util.Enumeration e = VetClinics.elements();
+	java.util.Enumeration e = listOfClinics.elements();
 
 	while(e.hasMoreElements())
 	    {
@@ -116,5 +116,5 @@ public class VetManager
     }
 
 
-    private Hashtable VetClinics = new Hashtable(); /**< \brief main list of vet clinic*/
+    private Hashtable listOfClinics = new Hashtable(); /**< \brief main list of vet clinic*/
 }
