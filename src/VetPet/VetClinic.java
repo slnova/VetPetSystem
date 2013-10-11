@@ -85,7 +85,7 @@ public class VetClinic
        
        \return true is cat has been added, false if the ID number is inncorect
      */
-    public boolean addCat(String name, String ID, String toy, String type )
+    public boolean addCat(String ID, String type, String name, String toy )
     {
     	if(!validID(ID))
     		return false;
